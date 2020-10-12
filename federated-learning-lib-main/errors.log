@@ -1,0 +1,1232 @@
+2020-10-10 20:55:36,624 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000001AFB915F5F8> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AFB91BB7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001AFB91BB7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AFB91BB7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AFB91BB7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-10 20:55:38,037 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000001AFB915F2E8> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AFB91BB4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001AFB91BB4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AFB91BB4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AFB91BB4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-10 21:11:23,524 -STD __main__ - ERROR - Error occurred during stop
+2020-10-10 21:11:23,527 -STD __main__ - ERROR - Insufficient number of parties to start training.
+2020-10-10 21:20:09,092 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000001B25CD6F588> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B25CDCC748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001B25CDCC748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B25CDCC748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B25CDCC748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-10 21:20:09,229 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000001B25CD6F278> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B25CDCC208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001B25CDCC208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B25CDCC208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B25CDCC208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-11 12:20:44,628 -STD ibmfl.util.config - ERROR - unexpected indent (mnist_keras_data_handler.py, line 49)
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 373, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 407, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\data_handlers\mnist_keras_data_handler.py", line 49
+    data_train = np.load(self.file_name)
+    ^
+IndentationError: unexpected indent
+2020-10-11 12:20:44,659 -STD ibmfl.util.config - ERROR - ('Error occurred while loading class %s', 'MnistKerasDataHandler', 'from path %s', 'ibmfl.util.data_handlers.mnist_keras_data_handler')
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 373, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 407, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\data_handlers\mnist_keras_data_handler.py", line 49
+    data_train = np.load(self.file_name)
+    ^
+IndentationError: unexpected indent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 234, in get_data_from_config
+    config['path'], config['name'])
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 378, in get_class_by_name
+    'from path %s', path)
+ibmfl.exceptions.InvalidConfigurationException: ('Error occurred while loading class %s', 'MnistKerasDataHandler', 'from path %s', 'ibmfl.util.data_handlers.mnist_keras_data_handler')
+2020-10-11 12:24:30,856 -STD ibmfl.util.config - ERROR - unexpected indent (mnist_keras_data_handler.py, line 49)
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 373, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 407, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\data_handlers\mnist_keras_data_handler.py", line 49
+    data_train = np.load(self.file_name)
+    ^
+IndentationError: unexpected indent
+2020-10-11 12:24:30,873 -STD ibmfl.util.config - ERROR - ('Error occurred while loading class %s', 'MnistKerasDataHandler', 'from path %s', 'ibmfl.util.data_handlers.mnist_keras_data_handler')
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 373, in get_class_by_name
+    cls_ref = get_attr_from_path(path, name_class)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 407, in get_attr_from_path
+    module = importlib.import_module(path)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 781, in get_code
+  File "<frozen importlib._bootstrap_external>", line 741, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\data_handlers\mnist_keras_data_handler.py", line 49
+    data_train = np.load(self.file_name)
+    ^
+IndentationError: unexpected indent
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 234, in get_data_from_config
+    config['path'], config['name'])
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\util\config.py", line 378, in get_class_by_name
+    'from path %s', path)
+ibmfl.exceptions.InvalidConfigurationException: ('Error occurred while loading class %s', 'MnistKerasDataHandler', 'from path %s', 'ibmfl.util.data_handlers.mnist_keras_data_handler')
+2020-10-11 16:06:52,947 -STD ibmfl.party.party_protocol_handler - ERROR - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\party_protocol_handler.py", line 121, in handle_request
+    response = handler(data.get('payload'))
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\training\local_training_handler.py", line 65, in train
+    train_data, (_) = self.data_handler.get_data()
+TypeError: 'NoneType' object is not iterable
+2020-10-11 16:42:40,960 -STD ibmfl.party.party_protocol_handler - ERROR - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\party_protocol_handler.py", line 121, in handle_request
+    response = handler(data.get('payload'))
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\training\local_training_handler.py", line 65, in train
+    train_data, (_) = self.data_handler.get_data()
+TypeError: 'NoneType' object is not iterable
+2020-10-11 16:42:41,885 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x0000020ACE76F438> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /7 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020ACE79CE80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000020ACE79CE80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /7 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020ACE79CE80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /7 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000020ACE79CE80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-11 17:30:29,645 -STD ibmfl.party.party_protocol_handler - ERROR - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\party_protocol_handler.py", line 121, in handle_request
+    response = handler(data.get('payload'))
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\training\local_training_handler.py", line 65, in train
+    train_data, (_) = self.data_handler.get_data()
+TypeError: 'NoneType' object is not iterable
+2020-10-11 17:44:24,016 -STD ibmfl.party.party_protocol_handler - ERROR - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\party_protocol_handler.py", line 121, in handle_request
+    response = handler(data.get('payload'))
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\training\local_training_handler.py", line 65, in train
+    train_data, (_) = self.data_handler.get_data()
+TypeError: 'NoneType' object is not iterable
+2020-10-11 20:27:41,683 -STD ibmfl.party.party_protocol_handler - ERROR - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\party_protocol_handler.py", line 121, in handle_request
+    response = handler(data.get('payload'))
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\training\local_training_handler.py", line 65, in train
+    train_data, (_) = self.data_handler.get_data()
+TypeError: 'NoneType' object is not iterable
+2020-10-11 20:27:41,867 -STD ibmfl.party.party_protocol_handler - ERROR - 'NoneType' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\party_protocol_handler.py", line 121, in handle_request
+    response = handler(data.get('payload'))
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\party\training\local_training_handler.py", line 65, in train
+    train_data, (_) = self.data_handler.get_data()
+TypeError: 'NoneType' object is not iterable
+2020-10-12 11:20:17,153 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000002A5724BF4A8> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002A57251C668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002A57251C668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002A57251C668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002A57251C668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 11:20:17,199 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000002A5724BF7B8> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002A57251C7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002A57251C7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002A57251C7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002A57251C7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 11:38:34,120 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x0000028748360438> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000287483BD2B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000287483BD2B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000287483BD2B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000287483BD2B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 11:38:34,137 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x0000028748360748> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000287483BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000287483BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000287483BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000287483BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 13:07:39,670 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000001EED13CF438> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EED142E7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001EED142E7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EED142E7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EED142E7B8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 13:07:39,909 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000001EED13CF748> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EED142E630>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001EED142E630>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EED142E630>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EED142E630>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 13:32:44,096 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000002E52966F748> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002E5296CD470>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002E5296CD470>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002E5296CD470>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002E5296CD470>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 13:32:44,129 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x000002E52966F438> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002E5296CD668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002E5296CD668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002E5296CD668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002E5296CD668>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 16:42:06,126 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x0000013E6435F438> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013E643BD4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000013E643BD4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013E643BD4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013E643BD4A8>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 16:42:15,118 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x0000013E6435F748> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013E643BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000013E643BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013E643BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013E643BD7F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 16:46:49,862 -STD ibmfl.model.keras_fl_model - ERROR - Loading model via keras.models.load_model failed!
+2020-10-12 16:47:17,885 -STD ibmfl.model.keras_fl_model - ERROR - Loading model via keras.models.load_model failed!
+2020-10-12 17:02:25,604 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x00000289A7BEF3C8> - HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289A7C4E208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000289A7C4E208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289A7C4E208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8085): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289A7C4E208>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+2020-10-12 17:02:31,054 -STD ibmfl.aggregator.protohandler.proto_handler - ERROR - Error occurred while sending request to party: <ibmfl.aggregator.party_connection.PartyConnection object at 0x00000289A7BEF6D8> - HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289A7C4E748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 392, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1287, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1333, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1282, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 1042, in _send_output
+    self.send(msg)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\http\client.py", line 980, in send
+    self.connect()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 187, in connect
+    conn = self._new_conn()
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000289A7C4E748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\urllib3\util\retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289A7C4E748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\aggregator\protohandler\proto_handler.py", line 116, in send_message
+    res_msg = self.connection.send_message(party.info, message)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 481, in send_message
+    response = self.post(endpoint, path, message, headers, certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\ibmfl\connection\flask_connection.py", line 396, in post
+    return requests.post(url, data=data, headers=headers, verify=False, cert=certs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 119, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Apeksha Naik\anaconda3\envs\trial\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8086): Max retries exceeded with url: /14 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000289A7C4E748>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it',))
